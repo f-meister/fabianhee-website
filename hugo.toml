@@ -27,13 +27,17 @@ theme = "blowfish"
 [menu]
   [[menu.main]]
     name = "blog"
-    url = "/tags/guilty-gear/"
+    url = "/blog"
     weight = 10
   [[menu.main]]
     name = "portfolio"
-    url = "/tags/jrpg/"
+    url = "/portfolio"
     weight = 20
   [[menu.main]]
     name = "tastyfab"
-    url = "https://youtube.com/@tastyfab"
+    url = "tastyfab"
     weight = 30
+  [[menu.main]]
+    name = "about me"
+    url = "/about"
+    weight = 40

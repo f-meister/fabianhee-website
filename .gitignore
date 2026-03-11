@@ -1,1 +1,3 @@
 .secrets
+.hugo_build.lock
+public/*
