@@ -1,5 +1,5 @@
 baseURL = "https://fabianhee.com"
-title = "Fabian Hee"
+title = "Welcome"
 theme = "blowfish"
 
 [params]
@@ -26,18 +26,31 @@ theme = "blowfish"
 
 [menu]
   [[menu.main]]
+    name = "about me"
+    url = "/about"
+    weight = 10
+  [[menu.main]]
     name = "blog"
     url = "/blog"
-    weight = 10
+    weight = 20
   [[menu.main]]
     name = "portfolio"
     url = "/portfolio"
-    weight = 20
-  [[menu.main]]
-    name = "tastyfab"
-    url = "tastyfab"
     weight = 30
   [[menu.main]]
-    name = "about me"
-    url = "/about"
+    name = "tastyfab"
+    pre = "youtube"
+    url = "tastyfab"
     weight = 40
+    # Sub-item: JRPG
+  [[menu.main]]
+    parent = "tastyfab"
+    name = "JRPG"
+    pageRef = "/tastyfab/tags/jrpg"
+    weight = 41
+  # Sub-item: Guilty Gear
+  [[menu.main]]
+    parent = "tastyfab"
+    name = "Guilty Gear"
+    pageRef = "/tastyfab/tags/guilty-gear"
+    weight = 42
