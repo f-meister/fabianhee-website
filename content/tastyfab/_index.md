@@ -6,4 +6,4 @@ showRecent: true
 showRecentItems: 3
 cardView: true                 # Makes your videos/posts look like gallery cards
 ---
-Analyzing character themes and JRPGs.
+Analyzing character themes and JRPGs... or something like that 
