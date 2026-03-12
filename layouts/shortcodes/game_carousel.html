@@ -1,14 +1,20 @@
-{{ $year := .Get "year" }}
-{{ $id := printf "carousel-%s" $year }}
-{{ $games := where .Site.Data.games "year" (int $year) }}
+{{ $type := .Get "type" }}
+{{ $games := .Site.Data.games }}
+{{ $filtered := slice }}
+
+{{ if eq $type "featured" }}
+    {{ $filtered = where $games "featured" true }}
+{{ else }}
+    {{ $filtered = where $games "role" $type }}
+{{ end }}
 
 {{ $style := resources.Get "css/custom-carousel.css" | minify | fingerprint }}
 <style>{{ $style.Content | safeCSS }}</style>
 
 {{ if gt (len $games) 0 }}
-<div id="{{ $id }}" class="carousel-fixed-container">
+<div id="{{ $filtered }}" class="carousel-fixed-container">
   <div class="carousel-track">
-    {{ range $games }}
+    {{ range $filtered }}
     <div class="carousel-slide">
       <a href="{{ .link }}" target="_blank" class="w-full h-full flex items-center justify-center">
         <img src="{{ .url }}" alt="{{ .title }}">
@@ -27,5 +33,5 @@
 
 {{ $script := resources.Get "js/carousel-logic.js" | minify | fingerprint }}
 <script src="{{ $script.RelPermalink }}"></script>
-<script>initGameCarousel('{{ $id }}');</script>
+<script>initGameCarousel('{{ $filtered }}');</script>
 {{ end }}

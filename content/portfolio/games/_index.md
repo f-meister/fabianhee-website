@@ -1,16 +1,19 @@
 ---
 title: "Gameography"
-description: "A comprehensive look at over 30 titles I've contributed to."
+description: "A comprehensive look the game titles I've contributed to."
 layout: "page"         # This triggers the card-based grid
 showRecent: false        # We want to show all, not just new ones
 showSummary: true
 thumbnailBorder: true    # Gives a clean 'box' feel to game covers
 ---
 
-From indie gems to major releases, here is a collection of the titles I've worked on over my career.
+From indie gems to major releases, here is a collection of titles I've worked on over the years.
 
-## 2012 Releases
-{{< game_carousel year="2012" >}}
+## Highlights
+{{< game_carousel type="featured" >}}
 
-## 2008 Classics
-{{< game_carousel year="2008" >}}
+## Sound Design
+{{< game_carousel type="sound" >}}
+
+## Quality Assurance
+{{< game_carousel type="qa" >}}
