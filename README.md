@@ -1,4 +1,4 @@
-# fabianhee-website | Personal Hub & Gaming Blog
+# fabianhee-website | Personal Hub & Blog
 
 This repository contains the source code for my personal brand hub, featuring my **Portfolio**, **Blog**, and **tastyfab** (YouTube content/JRPG & *Guilty Gear* analysis).
 
@@ -25,7 +25,7 @@ This project uses a **Dev Container** to ensure the environment is identical acr
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
 ```
-
+Otherwise, the devcontainers should trigger normally with the supplied `devcontainer.json` configuration.
 
 
 ---
@@ -39,9 +39,9 @@ sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 hugo server -D
 
 ```
-
-
 4. Access your site at `http://localhost:1313`.
+
+Note: If there is no prompt, manually trigger the container building/running sequence by pressing `F1` and select **"Reopen in Container"** or a similarly phrased selection.
 
 ---
 
