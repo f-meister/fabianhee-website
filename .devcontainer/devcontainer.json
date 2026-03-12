@@ -25,7 +25,8 @@
     },
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "26.1.4",
-      "moby": true
+      "moby": true,
+      "azureDns": false
     },
     "ghcr.io/devcontainers-contrib/features/act:1": {
       "version": "0.2.84"
