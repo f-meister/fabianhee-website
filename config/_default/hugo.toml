@@ -1,4 +1,9 @@
 baseURL = "https://fabianhee-website.pages.dev/"
 languageCode = "en-us"
-title = "Welcome"
+title = "Fabian Hee"
 theme = "blowfish"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  platform = "platforms" # Custom taxonomy for your games

@@ -70,35 +70,49 @@
 
 # Main Navbar
 [[main]]
-  name = "About me"
-  url = "/about"
+  name = "Blog"
+  pageRef = "/blog"
   weight = 10
 
 [[main]]
+  identifier = "portfolio"
   name = "Portfolio"
   pageRef = "/portfolio"
   weight = 20
 
 [[main]]
-  name = "Blog"
-  pageRef = "/blog"
-  weight = 30
+  parent = "portfolio"
+  name = "audio/video"
+  pageRef = "/portfolio/audio-video"
+  weight = 1
+
+[[main]]
+  parent = "portfolio"
+  name = "games"
+  pageRef = "/portfolio/games"
+  weight = 2
+
+[[main]]
+  parent = "portfolio"
+  name = "tech"
+  pageRef = "/portfolio/tech"
+  weight = 3
 
 [[main]]
   name = "tastyfab"
   pre = "youtube"
   pageRef = "/tastyfab"
-  weight = 40
+  weight = 30
 
 # Sub-Categories for tastyfab (Dropdown)
 [[main]]
   name = "Guilty Gear"
   parent = "tastyfab"
   pageRef = "/tastyfab/tags/guilty-gear"
-  weight = 50
+  weight = 1
 
 [[main]]
   name = "JRPGs"
   parent = "tastyfab"
   pageRef = "/tastyfab/tags/jrpg"
-  weight = 60
+  weight = 2

@@ -1,0 +1,10 @@
+/* assets/css/custom-carousel.css */
+.carousel-container {
+    @apply relative w-full overflow-hidden rounded-xl shadow-lg group;
+}
+.carousel-inner {
+    @apply flex transition-transform duration-500 ease-in-out;
+}
+.carousel-btn {
+    @apply absolute top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10;
+}
