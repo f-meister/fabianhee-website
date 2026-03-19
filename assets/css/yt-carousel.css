@@ -1,0 +1,138 @@
+/* assets/css/yt-carousel.css */
+.yt-container { 
+    width: 100%; 
+    max-width: 900px; 
+    margin: 2rem auto; 
+    aspect-ratio: 16 / 9; 
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 16px; 
+    background: #000; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+}
+
+.yt-track { 
+    display: flex; 
+    height: 100%; 
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
+}
+
+.yt-slide { 
+    min-width: 100%; 
+    height: 100%; 
+    position: relative;
+    display: block; /* Ensure it's a block-level element */
+    overflow: hidden;
+}
+
+/* 1. Reset the link to fill the container */
+.yt-slide a {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 2. Force the image to ignore all constraints and fill the 16:9 box */
+.yt-slide img { 
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;  /* Overrides theme limits */
+    max-height: none !important; /* Overrides theme limits */
+    object-fit: cover !important; 
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.play-trigger { 
+    position: absolute; 
+    inset: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: rgba(0,0,0,0.2); 
+    transition: background 0.3s; 
+}
+
+.play-trigger:hover { background: rgba(0,0,0,0.5); }
+
+.play-icon { 
+    width: 70px; 
+    height: 50px; 
+    background: #FF0000; 
+    border-radius: 12px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: transform 0.2s; 
+}
+
+.yt-slide:hover .play-icon { transform: scale(1.1); }
+
+.yt-info { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    padding: 2.5rem 1.5rem 1.2rem; /* Slightly more padding for the taller text stack */
+    background: linear-gradient(transparent, rgba(0,0,0,0.9)) !important; 
+    text-align: left; 
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Space between Title and Meta row */
+}
+
+/* Title Style */
+.yt-title {
+    color: #ffffff !important;
+    margin: 0 !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Meta Row (Badge + Date) */
+.yt-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.yt-role-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(255,255,255,0.2) !important;
+    color: #ffffff !important;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.yt-year {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 400;
+}
+
+.yt-nav { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: rgba(255,255,255,0.1); 
+    backdrop-filter: blur(4px); 
+    color: #ffffff !important;
+    background: rgba(255,255,255,0.1) !important;
+    border: none; 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    z-index: 10; 
+    transition: 0.3s; 
+}
+
+.yt-nav:hover { background: rgba(255,255,255,0.25); }

@@ -1,0 +1,54 @@
+      {{ $type := .Get "type" | default "youtube" }}
+      {{ $videos := where .Site.Data.audio_video "style" $type }}
+      {{ $id := printf "yt-carousel-%s" (delimit (shuffle (seq 1 9)) "") }}
+
+      {{/* Load the dedicated YouTube CSS */}}
+      {{ $style := resources.Get "css/yt-carousel.css" | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+      {{ if gt (len $videos) 0 }}
+      <div id="{{ $id }}" class="yt-container">
+        <div class="yt-track">
+          {{ range $videos }}
+          <div class="yt-slide">
+            <a href="{{ .link }}" target="_blank" class="w-full h-full block">
+              <img src="{{ .thumbnail }}" alt="{{ .title }}">
+              <div class="play-trigger">
+                  <div class="play-icon">
+                      <span style="color: white; font-size: 1.5rem; margin-left: 4px;">▶</span>
+                  </div>
+              </div>
+              <div class="yt-info">
+              {{/* 1. Title on Top */}}
+        <h3 class="yt-title">{{ .title }}</h3>
+        
+        {{/* 2. Type and Date below it */}}
+        <div class="yt-meta">
+          <span class="yt-role-badge">{{ .type }}</span>
+          <span class="yt-year">{{ .year }}</span>
+        </div>
+      </div>
+            </a>
+          </div>
+          {{ end }}
+        </div>
+
+        <button class="yt-nav" style="left: 1rem;" onclick="moveYT('{{ $id }}', -1)">❮</button>
+        <button class="yt-nav" style="right: 1rem;" onclick="moveYT('{{ $id }}', 1)">❯</button>
+      </div>
+
+      <script>
+        if (typeof moveYT !== 'function') {
+          window.moveYT = function(id, dir) {
+            const container = document.getElementById(id);
+            const track = container.querySelector('.yt-track');
+            const slides = track.children.length;
+            let currentIdx = parseInt(container.getAttribute('data-idx') || 0);
+            
+            currentIdx = (currentIdx + dir + slides) % slides;
+            container.setAttribute('data-idx', currentIdx);
+            track.style.transform = `translateX(-${currentIdx * 100}%)`;
+          }
+        }
+      </script>
+      {{ end }}
