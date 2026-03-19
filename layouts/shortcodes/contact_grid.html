@@ -1,0 +1,48 @@
+{{ $data := .Site.Data.contact.contact }}
+{{ $style := resources.Get "css/custom-grid.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+{{/* Width 550px is the sweet spot for two cards on desktop */}}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-10 max-w-[550px] mx-auto px-4">
+  
+  {{/* Card Container */}}
+  {{/* We use py-8 for vertical padding and space-y-4 for internal gaps */}}
+  <div class="py-8 px-6 bg-neutral-50 dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 flex flex-col items-center text-center shadow-sm space-y-4">
+    
+    <div class="text-3xl !m-0">✉️</div>
+    
+    <div class="!m-0">
+        {{/* !m-0 is critical here to stop Hugo from adding top/bottom whitespace */}}
+        <h3 class="text-lg font-bold !m-0 mb-1 dark:text-white leading-tight">Direct Inquiry</h3>
+        <p class="text-[11px] text-neutral-600 dark:text-neutral-400 !m-0 leading-relaxed">
+          For consultation, training, or tech questions.
+        </p>
+    </div>
+
+    <a href="mailto:{{ $data.email }}" 
+       class="inline-block min-w-[140px] py-2.5 bg-primary-500 text-white rounded-lg text-sm font-bold transition-colors no-underline hover:bg-primary-600 hover:rounded-lg text-center !m-0">
+      Email Me
+    </a>
+
+  </div>
+
+  {{/* Scheduling Card */}}
+  <div class="py-8 px-6 bg-neutral-100 dark:bg-neutral-900 rounded-2xl border-2 border-dashed border-neutral-300 dark:border-neutral-700 flex flex-col items-center text-center space-y-4">
+    
+    <div class="text-3xl !m-0">🗓️</div>
+    
+    <div class="!m-0">
+        <h3 class="text-lg font-bold !m-0 mb-1 dark:text-white leading-tight">Discovery Call</h3>
+        <p class="text-[11px] text-neutral-600 dark:text-neutral-400 !m-0 leading-relaxed">
+          Ready to start? Let's jump on a 15-minute intro call.
+        </p>
+    </div>
+
+    <a href="{{ $data.calendly_link }}" target="_blank" 
+       class="inline-block min-w-[140px] py-2.5 border-2 border-primary-500 text-primary-500 rounded-lg text-sm font-bold transition-all no-underline hover:bg-primary-500 hover:text-white hover:rounded-lg text-center !m-0">
+      Check Availability
+    </a>
+
+  </div>
+
+</div>

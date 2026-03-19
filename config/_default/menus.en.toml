@@ -103,3 +103,9 @@
   pre = "youtube"
   url = "https://www.youtube.com/@tastyfab"
   weight = 30
+
+[[main]]
+  identifier = "contact"
+  name = "Contact"
+  url = "/contact"
+  weight = 40
