@@ -101,18 +101,5 @@
 [[main]]
   name = "tastyfab"
   pre = "youtube"
-  pageRef = "/tastyfab"
+  url = "https://www.youtube.com/@tastyfab"
   weight = 30
-
-# Sub-Categories for tastyfab (Dropdown)
-[[main]]
-  name = "Guilty Gear"
-  parent = "tastyfab"
-  pageRef = "/tastyfab/tags/guilty-gear"
-  weight = 1
-
-[[main]]
-  name = "JRPGs"
-  parent = "tastyfab"
-  pageRef = "/tastyfab/tags/jrpg"
-  weight = 2

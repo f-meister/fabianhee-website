@@ -30,3 +30,16 @@
     align-items: center;
     justify-content: center;
 }
+
+/* Force all buttons in our grids to maintain their rounding */
+.bg-primary-500, .bg-primary-600 {
+    border-radius: 0.5rem !important; /* This matches rounded-lg */
+}
+
+/* Specifically target the shortcode links */
+.rounded-lg, 
+.rounded-lg:hover, 
+.rounded-lg:active, 
+.rounded-lg:focus {
+    border-radius: 0.5rem !important;
+}

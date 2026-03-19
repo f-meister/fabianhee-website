@@ -1,0 +1,18 @@
+services:
+  - title: "AI Training"
+    icon: "🤖"
+    description: "Practical sessions on integrating Generative AI into your creative or technical pipeline without losing your unique voice."
+    button_text: "Learn More"
+    button_link: "#contact"
+
+  - title: "Ops & Automation"
+    icon: "🚀"
+    description: "Auditing and optimizing your operations. I help you build automated pipelines that reduce manual friction and maximize ROI."
+    button_text: "Optimize Now"
+    button_link: "#contact"
+
+  - title: "Creative Strategy"
+    icon: "✍️"
+    description: "From video essays to technical documentation—I help you structure and execute high-impact content for your brand."
+    button_text: "Inquire"
+    button_link: "#contact"
