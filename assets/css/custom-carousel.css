@@ -79,3 +79,9 @@
   .nav-btn:hover { background: rgba(255,255,255,0.3); }
   .nav-prev { left: 1rem; }
   .nav-next { right: 1rem; }
+  
+  /* Only hide the section if it contains the specific "no articles" text */
+  section:has(header + .mt-10):last-of-type,
+  .mt-10.pt-8.border-t.border-neutral-200 {
+    display: none !important;
+  }

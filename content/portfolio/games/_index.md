@@ -1,13 +1,8 @@
 ---
 title: "Gameography"
-description: "A comprehensive look the game titles I've contributed to."
-layout: "page"         # This triggers the card-based grid
-showRecent: false        # We want to show all, not just new ones
-showSummary: true
-thumbnailBorder: true    # Gives a clean 'box' feel to game covers
+description: "A comprehensive look the game titles I've contributed to, from indie gems to major releases."
+layout: "no-list"
 ---
-
-From indie gems to major releases, here is a collection of titles I've worked on over the years.
 
 ## Highlights
 {{< game_carousel type="featured" >}}

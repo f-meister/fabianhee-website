@@ -94,7 +94,7 @@
   role: "sound"
   url: "https://cdn.mobygames.com/71a83d2e-ab94-11ed-b6ee-02420a00019d.webp"
   link: "https://www.mobygames.com/game/62070/awakening-the-skyward-castle/"
-  featured: false
+  featured: true
 
 - title: "Scrabble Interactive: 2009 Edition"
   year: 2009
