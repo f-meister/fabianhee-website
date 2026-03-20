@@ -167,6 +167,11 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   # globalWidgetColor = "#FFDD00"
   # globalWidgetPosition = "right"
 
+[analytics]
+  [analytics.google]
+    id = "HUGO_SERVICES_GOOGLEANALYTICS_ID"
+    enabled = true  # Some versions require this explicit 'true'
+
 [verification]
   # google = ""
   # bing = ""
