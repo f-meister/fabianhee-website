@@ -1,0 +1,17 @@
+- category: "Development & Systems"
+  tools:
+    - name: "Google AI Suite"
+      level: "Planning & Automation"
+    - name: "Hugo + Blowfish"
+      level: "SSG & Web"
+    - name: "Cloudflare"
+      level: "Deployment"
+
+- category: "Creative & Media"
+  tools:
+    - name: "Capcut Pro"
+      level: "Video Editing"
+    - name: "Harrison Mixbus"
+      level: "Audio Engineering"
+    - name: "OBS"
+      level: "Content Capture"

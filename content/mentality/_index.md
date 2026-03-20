@@ -4,6 +4,7 @@ description: "Over the years, I’ve refined a mentality that prioritizes long-t
 layout: "no-list"
 ---
 {{< mentality_engine >}}
+{{< stack_grid >}}
 ---
 
 {{< next_step "/experience" "Explore the Journey" >}}
