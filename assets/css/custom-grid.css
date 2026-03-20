@@ -50,3 +50,8 @@
     display: inline-block !important;
     line-height: 1.8 !important;
 }
+
+/* Force spacing on the footer links */
+.flex.flex-row.justify-center.gap-8 a {
+    margin: 0 10px !important;
+}

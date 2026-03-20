@@ -10,8 +10,10 @@ I am currently based in **{{< get_contact location >}}** ({{< get_contact timezo
 {{< contact_grid >}}
 
 ---
-
 ### **Other Ways to Connect**
 * **Professional:** [LinkedIn](https://linkedin.com/in/{{< get_contact linkedin >}})
 * **Code:** [GitHub](https://github.com/{{< get_tech username >}})
-* **Creative:** [YouTube](https://youtube.com/@tastyfab)
+
+---
+
+{{< contact_footer >}}
