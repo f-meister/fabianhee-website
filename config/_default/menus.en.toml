@@ -106,6 +106,7 @@
 
 [[main]]
   identifier = "contact"
+  pre = "envelope"
   name = "Contact"
   url = "/contact"
   weight = 40

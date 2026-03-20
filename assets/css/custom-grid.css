@@ -48,11 +48,5 @@
 .min-w-\[140px\] {
     min-width: 140px !important;
     display: inline-block !important;
-    line-height: 1.2 !important;
-}
-
-/* Ensure our contact cards don't inherit weird prose spacing */
-.flex.flex-col.items-center > * {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    line-height: 1.8 !important;
 }
