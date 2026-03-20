@@ -5,11 +5,11 @@ layout: "no-list"
 ---
 {{< img-profile src="/img/profile_pic.png" alt="Fabian Hee" >}}
 
-I thrive at the intersection of **gaming, technology, and narrative.** With {{< get_career_years >}} years of experience built on the forefront of technical innovation across industries, I’ve transitioned from a traditional developer mindset to a seasoned practitioner of modern AI workflows.
+With {{< get_career_years >}} years of experience built on the forefront of technical innovation across industries, I’ve transitioned from a traditional developer mindset to a seasoned practitioner of modern AI workflows.
 
 **I don't just study the tech; I live in the implementation.**
 
-My approach is defined by an **automation-first and optimization mindset.** I believe that technical operations should be invisible—seamlessly handling the heavy lifting so that creative excellence remains the big picture. From architecting streamlined content pipelines to optimizing performance and leveraging AI for operational efficiency, I build systems designed for scale and stability so I can focus on the audience.
+I believe that technical operations should be invisible—seamlessly handling the heavy lifting so that creative excellence remains the big picture. From architecting streamlined content pipelines to optimizing performance and leveraging AI for operational efficiency, I build systems designed for scale and stability so I can focus on the audience.
 
 Today, I leverage this hybrid expertise to help others navigate the rapidly evolving AI landscape—turning complex tools into creative advantages.
 
@@ -17,4 +17,10 @@ Today, I leverage this hybrid expertise to help others navigate the rapidly evol
 
 ## **How I Can Help You**
 {{< services_grid >}}
+
+---
+
+## Latest from my Blog
+{{< recent_posts >}}
 {{< next_step "/mentality" "Learn How I work" >}}
+
