@@ -12,3 +12,7 @@ theme = "blowfish"
   [services.googleAnalytics]
     ID = "HUGO_SERVICES_GOOGLEANALYTICS_ID"
     enabled = true  # Some versions require this explicit 'true'
+
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true
