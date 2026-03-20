@@ -13,4 +13,4 @@ layout: "no-list"
 ## Quality Assurance
 {{< game_carousel type="qa" >}}
 
-{{< next_step "/portfolio/audio-video" "Filmography" "/contact" "Get in Touch!" "/portfolio/tech" "Tech-o-graphy">}}
+{{< next_step "/portfolio/audio-video" "Filmography" "/contact" "Get in Touch!" "/portfolio/tech" "Techography">}}

@@ -1,0 +1,53 @@
+<style>
+  .contact-icon-wrapper svg {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+  /* Manual spacing override */
+  .custom-spacer {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+</style>
+
+<div class="text-center mt-12 mb-12 not-prose">
+  <h3 class="text-xl font-bold mb-10">Other Ways to Connect</h3>
+  
+  <div class="flex justify-center items-center">
+    
+    {{/* LinkedIn */}}
+    {{ with .Site.Data.contact.contact.linkedin }}
+    <a href="{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="group no-underline custom-spacer transition-transform hover:scale-110">
+      <div class="w-20 h-20 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 group-hover:bg-[#0077b5] group-hover:text-white transition-all shadow-lg">
+        <div class="contact-icon-wrapper w-10 h-10">
+          {{ partial "icon.html" "linkedin" }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+
+    {{/* WhatsApp */}}
+    {{ with .Site.Data.contact.contact.whatsapp }}
+    <a href="{{ . }}" target="_blank" rel="noopener" aria-label="WhatsApp" class="group no-underline custom-spacer transition-transform hover:scale-110">
+      <div class="w-20 h-20 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 group-hover:bg-[#25D366] group-hover:text-white transition-all shadow-lg">
+        <div class="contact-icon-wrapper w-10 h-10">
+          {{ partial "icon.html" "whatsapp" }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+
+    {{/* GitHub */}}
+    {{ with .Site.Data.contact.contact.github }}
+    <a href="{{ . }}" target="_blank" rel="noopener" aria-label="GitHub" class="group no-underline custom-spacer transition-transform hover:scale-110">
+      <div class="w-20 h-20 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 group-hover:bg-black dark:group-hover:bg-white dark:group-hover:text-black transition-all shadow-lg">
+        <div class="contact-icon-wrapper w-10 h-10">
+          {{ partial "icon.html" "github" }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+
+  </div>
+</div>

@@ -23,6 +23,9 @@ articles:
 github:
   username: "f-meister"
   repos:
+    - name: "fabianhee-website"
+      description: "This Website! The code is all there so feel free to fork it!"
+      language: "HTML, CSS, JS"
     - name: "easy-peacy-jenkins"
       description: "Fast and easy dockerized Jenkins server in a docker container using docker-compose."
       language: "shell"

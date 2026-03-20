@@ -5,11 +5,8 @@ layout: "no-list"
 ---
 {{< experience_timeline >}}
 ---
-
-## **Recognition**
-* **Best Sound** — Nowhere (UK) | IFilmmaker International Film Festival
-* **Grand Prize Winner** — Defenders of the Rainforest | Sarawak Movie in the Rainforest
-
+{{< experience_recognition >}}
 ---
+{{< experience_CV_button >}}
 
-{{< next_step "/portfolio/games" "Gameography" "/portfolio/audio-video" "Filmography" "/portfolio/tech" "Tech-o-graphy">}}
+{{< next_step "/portfolio/games" "Gameography" "/portfolio/audio-video" "Filmography" "/portfolio/tech" "Techography">}}

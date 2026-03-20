@@ -1,19 +1,32 @@
 {{ $username := .Site.Data.tech.github.username }}
 {{ $repos := .Site.Data.tech.github.repos }}
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8 max-w-[800px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8 max-w-[800px] mx-auto not-prose">
   {{ range $repos }}
-  <div class="p-5 border border-neutral-200 dark:border-neutral-700 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors group">
-    <a href="https://github.com/{{ $username }}/{{ .name }}" target="_blank" class="no-underline">
-      <div class="flex items-center mb-2">
-        <svg class="w-5 h-auto mr-2 fill-current text-neutral-500" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-        <h4 class="m-0 font-bold group-hover:text-primary-500 transition-colors">{{ .name }}</h4>
+  <div class="p-4 border border-neutral-200 dark:border-neutral-800 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-all group">
+    <a href="https://github.com/{{ $username }}/{{ .name }}" target="_blank" class="no-underline block">
+      
+      {{/* Header: Flex items-center is the fix for the alignment */}}
+      <div class="flex items-center mb-1">
+        <svg class="w-4 h-4 mr-2 fill-current text-neutral-500 group-hover:text-primary-500 transition-colors" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        <h4 class="text-base font-bold m-0 p-0 leading-none group-hover:text-primary-500 transition-colors">
+          {{ .name }}
+        </h4>
       </div>
-      <p class="text-sm text-neutral-600 dark:text-neutral-400 m-0 leading-relaxed">{{ .description }}</p>
-      <div class="mt-3 flex items-center">
+
+      {{/* Description: Smalled text for compactness */}}
+      <p class="text-sm text-neutral-600 dark:text-neutral-400 m-0 leading-snug line-clamp-1">
+        {{ .description }}
+      </p>
+
+      {{/* Footer: Minimalist language tag */}}
+      <div class="mt-2 flex items-center opacity-70">
         <span class="w-3 h-3 rounded-full bg-primary-500 mr-2"></span>
-        <span class="text-xs font-mono text-neutral-500">{{ .language }}</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-neutral-500">{{ .language }}</span>
       </div>
+      
     </a>
   </div>
   {{ end }}
