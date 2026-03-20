@@ -1,0 +1,50 @@
+{
+  "name": "fabianhee-website-reproducible",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "overrideFeatureInstallOrder": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2.5.6": {
+      "configureZshAsDefaultShell": true,
+      "username": "vscode",
+      "userUid": "1001",
+      "userGid": "1001"
+    },
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.25.8"
+    },
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "version": "0.157.0",
+      "extended": true
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "2.66.1"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "26.1.4",
+      "moby": true,
+      "azureDns": false
+    },
+    "ghcr.io/devcontainers-contrib/features/act:1": {
+      "version": "0.2.84"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "hugo.executablePath": "/usr/local/bin/hugo"
+      },
+      "extensions": [
+        "budparr.hugo-vscode",
+        "unifiedjs.vscode-mdx",
+        "tamasfe.even-better-toml",
+        "github.vscode-github-actions"
+      ]
+    }
+  },
+  "forwardPorts": [1313],
+  "postCreateCommand": "hugo version && go version && gh --version && act --version && docker --version"
+}

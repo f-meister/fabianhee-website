@@ -1,0 +1,19 @@
+{{ $image := resources.Get (.Get "src") }}
+
+{{/* Reduced 'my-8' to 'my-4' to tighten the vertical space */}}
+<div class="flex justify-center w-full my-4">
+  {{ if $image }}
+    {{ $processed := $image.Fill "400x400 webp center" }}
+    
+    <img 
+      src="{{ $processed.RelPermalink }}" 
+      width="160" 
+      height="160"
+      alt="{{ .Get "alt" }}" 
+      class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg border-4 border-neutral-100 dark:border-neutral-800 mx-auto"
+      style="margin-top: 0 !important; margin-bottom: 0 !important;"
+    >
+  {{ else }}
+    <div class="w-32 h-32 bg-neutral-200 rounded-full mx-auto"></div>
+  {{ end }}
+</div>

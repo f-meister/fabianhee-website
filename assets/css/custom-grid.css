@@ -1,0 +1,57 @@
+/* Force the grid images to fill the space and remove grey bands */
+.tech-grid-img {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important; /* This is the killer of grey bands */
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important; /* Makes the image 'invisible' to clicks */
+    cursor: default !important;
+}
+
+/* Ensure the parent link shows the hand pointer */
+.group a {
+    cursor: pointer !important;
+}
+
+/* If the theme is adding a 'zoom' icon on hover via a pseudo-element */
+.group:after, .group:before {
+    display: none !important;
+}
+
+/* Ensure the parent container doesn't restrict the height */
+.aspect-video {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Force all buttons in our grids to maintain their rounding */
+.bg-primary-500, .bg-primary-600 {
+    border-radius: 0.5rem !important; /* This matches rounded-lg */
+}
+
+/* Specifically target the shortcode links */
+.rounded-lg, 
+.rounded-lg:hover, 
+.rounded-lg:active, 
+.rounded-lg:focus {
+    border-radius: 0.5rem !important;
+}
+
+/* Ensure the buttons have significant height and padding */
+.min-w-\[140px\] {
+    min-width: 140px !important;
+    display: inline-block !important;
+    line-height: 1.8 !important;
+}
+
+/* Force spacing on the footer links */
+.flex.flex-row.justify-center.gap-8 a {
+    margin: 0 10px !important;
+}

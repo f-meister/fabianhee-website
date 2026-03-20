@@ -1,0 +1,18 @@
+baseURL = "https://fabianhee-website.pages.dev/"
+languageCode = "en-us"
+title = "Fabian Hee"
+theme = "blowfish"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  platform = "platforms" # Custom taxonomy for your games
+
+[services]
+  [services.googleAnalytics]
+    ID = "HUGO_SERVICES_GOOGLEANALYTICS_ID"
+    enabled = true  # Some versions require this explicit 'true'
+
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true

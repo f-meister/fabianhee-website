@@ -1,0 +1,55 @@
+{{ $type := .Get "type" }}
+{{ $games := .Site.Data.games }}
+{{ $filtered := slice }}
+
+{{ if eq $type "featured" }}
+    {{ $filtered = where $games "featured" true }}
+{{ else }}
+    {{ $filtered = where $games "role" $type }}
+{{ end }}
+
+{{ $id := printf "game-carousel-%s" $type }}
+
+{{/* Load the Gameography CSS */}}
+{{ $style := resources.Get "css/custom-carousel.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+{{ if gt (len $filtered) 0 }}
+<div id="{{ $id }}" class="carousel-fixed-container">
+  <div class="carousel-track">
+    {{ range $filtered }}
+    <div class="carousel-slide">
+      <a href="{{ .link }}" target="_blank" rel="noopener">
+        <img src="{{ .url }}" alt="{{ .title }}">
+        <div class="text-overlay">
+          <h3 class="font-bold text-lg m-0 text-white">{{ .title }}</h3>
+          <p class="text-sm opacity-80 m-0 text-neutral-300">
+            <span style="text-transform: uppercase; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; margin-right: 5px;">{{ .role }}</span>
+            {{ .year }}
+          </p>
+        </div>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+
+  <button class="nav-btn nav-prev" onclick="moveGame('{{ $id }}', -1)">❮</button>
+  <button class="nav-btn nav-next" onclick="moveGame('{{ $id }}', 1)">❯</button>
+</div>
+
+<script>
+  /* Localized JS function for Gameography to avoid conflicts */
+  if (typeof moveGame !== 'function') {
+    window.moveGame = function(id, dir) {
+      const container = document.getElementById(id);
+      const track = container.querySelector('.carousel-track');
+      const slides = track.children.length;
+      let currentIdx = parseInt(container.getAttribute('data-idx') || 0);
+      
+      currentIdx = (currentIdx + dir + slides) % slides;
+      container.setAttribute('data-idx', currentIdx);
+      track.style.transform = `translateX(-${currentIdx * 100}%)`;
+    }
+  }
+</script>
+{{ end }}

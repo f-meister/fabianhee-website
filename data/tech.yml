@@ -1,0 +1,31 @@
+articles:
+  - title: "Deploying Shiny for Python apps built with Tapyr to Posit Connect"
+    platform: "posit"
+    date: "2024-10-17"
+    description: "I walk you through the “Tapyr” framework that allows you to quickly and easily create and deploy enterprise-ready Shiny for Python dashboards."
+    link: "https://posit.co/blog/deploying-tapyr-on-posit-connect/"
+    image: "https://posit.co/wp-content/uploads/2024/08/Blog_tapyr-positconnect.jpg"
+
+  - title: "The Power of Transitioning to a '-verse' Approach in R Package Development"
+    platform: "Appsilon"
+    date: "2024-07-11"
+    description: "I document the real life success story of introducing a universe of interconnected packages in an enterprise setting."
+    link: "https://www.appsilon.com/post/the-power-of-transitioning-to-a-verse"
+    image: "https://cdn.prod.website-files.com/654fd3ad88635290d9845b9e/668fb787dc89f80d10a8defb_AD_4nXcKQyVCTgvqGaE5e2Xh56Ej7NS-aK8Z6du_rtdTpTYBpHyUUKy7nxXQLbfnKd9JnpSnmaw_ooOZ_GRLlnzSJ9asmAHsxDUV0a2_RQ8Yrpls2FPgzj6llft4ypg9cik488kTbtjQ0VE53XvX68iDcbK1EBjQ.png"
+
+  - title: "Appsprints & Distributed Teams: R Shiny App Development"
+    platform: "Appsilon"
+    date: "2022-09-27"
+    description: "I share the experience of working with a distributed team on a sprint across 3 different countries and timezones."
+    link: "https://www.appsilon.com/post/appsprints-r-shiny-app-development"
+    image: "https://webflow-prod-assets.s3.amazonaws.com/6525256482c9e9a06c7a9d3c%2F65b01d15db456a59ff5bbaa3_appsilon-r-shiny-appsprint-map-respiratory-diseases-dashboard-1.webp"
+
+github:
+  username: "f-meister"
+  repos:
+    - name: "fabianhee-website"
+      description: "This Website! The code is all there so feel free to fork it!"
+      language: "HTML, CSS, JS"
+    - name: "easy-peacy-jenkins"
+      description: "Fast and easy dockerized Jenkins server in a docker container using docker-compose."
+      language: "shell"

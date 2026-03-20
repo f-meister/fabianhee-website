@@ -1,0 +1,71 @@
+- title: "Baram Bunch Story Hunters"
+  year: 2021
+  platform: "YouTube"
+  type: "Short Film"
+  thumbnail: "https://i.ytimg.com/vi/dEUYisatUgI/maxresdefault.jpg"
+  link: "https://www.youtube.com/watch?v=dEUYisatUgI"
+  description: "A short film about a group of friends in Baram and their adventures"
+  style: "youtube" # Triggers the rich card style
+
+- title: "The Triad"
+  year: 2017
+  platform: "FilmFreeway"
+  type: "Short Film"
+  thumbnail: "https://filmfreeway-production-storage-01-connector.filmfreeway.com/press_kits/posters/001/039/069/original/7854fcc259-poster.jpg"
+  link: "https://filmfreeway.com/thetriad_short"
+  description: "Two students face off against each other for their master's honour"
+  style: "youtube" # Triggers the rich card style
+
+- title: "Singapore Pocket Opera Theatre recital"
+  year: 2017
+  platform: "YouTube"
+  type: "Event"
+  thumbnail: "https://i.ytimg.com/vi/21eQSKhlGTY/hqdefault.jpg"
+  link: "https://www.youtube.com/watch?v=21eQSKhlGTY"
+  description: "Event coverage of the Singapore Pocket Opera Theatre recital in Kuching, Malaysia"
+  style: "standard"
+
+- title: "The SSPCA Shelter"
+  year: 2017
+  platform: "YouTube"
+  type: "PSA"
+  thumbnail: "https://i.ytimg.com/vi/XEzis6R9qU0/maxresdefault.jpg"
+  link: "https://www.youtube.com/watch?v=XEzis6R9qU0"
+  description: "A two-part video for the Sarawak Society of Prevention of Cruelty to Animals"
+  style: "standard"
+
+- title: "Nowhere"
+  year: 2016
+  platform: "FaceBook"
+  type: "Short Film"
+  thumbnail: "https://scontent.fkch2-1.fna.fbcdn.net/v/t1.6435-9/42734784_747235328942351_5204749804332122112_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_ohc=w19lnWVWVAoQ7kNvwHnPuJy&_nc_oc=AdqEcspiIsGTa458ikdWbMxSRPPyTh44-zEjeHIwCVOjl5-5KOxJNF4sz_h2Nrps_JkI71J6VGpvQkjSMGoFIzOj&_nc_zt=23&_nc_ht=scontent.fkch2-1.fna&_nc_gid=YHhoN9SQV-OcQ4by7dtDhg&_nc_ss=8&oh=00_AfwKyZPpicU447zsPtcynHB2ldmlQce-Av-yw4Sif1WOhg&oe=69E334E7"
+  link: "https://www.facebook.com/nowherethemovie/videos/378008372531717"
+  description: "A homeless man, struggling to survive on the streets of London, finds his world is changed foreve"
+  style: "youtube"
+
+- title: "Defenders of The Rainforest"
+  year: 2016
+  platform: "FilmFreeway"
+  type: "Short Film"
+  thumbnail: "https://filmfreeway-production-storage-01-connector.filmfreeway.com/press_kits/posters/000/817/437/original/DoTR_Poster.jpg"
+  link: "https://filmfreeway.com/DoTR"
+  description: "A villager is at a stand-off with a mysterious stranger on the last remaining piece of the rainforest."
+  style: "youtube"
+
+- title: "Sarawak Hobby Fest"
+  year: 2015
+  platform: "YouTube"
+  type: "Promo Video"
+  thumbnail: "https://i.ytimg.com/vi/uJvgAxNIY5w/maxresdefault.jpg"
+  link: "https://www.youtube.com/watch?list=PLa1P4ocepa1j-oLAcHJkR7ceyqrRE5Uo5&v=uJvgAxNIY5w"
+  description: "A villager is at a stand-off with a mysterious stranger on the last remaining piece of the rainforest."
+  style: "standard"
+
+- title: "The Accountant, The Man"
+  year: 2015
+  platform: "YouTube"
+  type: "Short Film"
+  thumbnail: "https://i.ytimg.com/vi/q1Kuscyba1g/maxresdefault.jpg"
+  link: "https://www.youtube.com/watch?v=q1Kuscyba1g"
+  description: "An accountant got more than he bargained for when things got sour at his workplace."
+  style: "youtube"
