@@ -1,10 +1,9 @@
 ---
 title: "The Journey"
-description: "17+ years of optimizing systems across games, data, and creative media."
+description: "My experience in optimizing systems across games, data, and creative media."
 layout: "no-list"
 ---
 {{< experience_timeline >}}
-
 ---
 
 ## **Recognition**
@@ -13,4 +12,4 @@ layout: "no-list"
 
 ---
 
-{{< contact_footer >}}
+{{< next_step "/portfolio/games" "Gameography" "/portfolio/audio-video" "Filmography" "/portfolio/tech" "Tech-o-graphy">}}

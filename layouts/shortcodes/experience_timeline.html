@@ -2,7 +2,6 @@
 
 <div style="max-width: 800px; margin: 40px auto; padding: 0 20px; font-family: sans-serif; text-align: left;">
   <div style="margin-left: 10px;">
-    
     {{ range $index, $element := $data.entries }}
     <div style="position: relative; padding-left: 30px; padding-bottom: 40px; text-align: left;">
       
@@ -33,9 +32,15 @@
       <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: currentColor; opacity: 0.7; text-align: left;">
         {{ .description | safeHTML }}
       </p>
-      
     </div>
     {{ end }}
     
   </div>
 </div>
+
+<div style="text-align: center; margin-bottom: 30px;">
+  <a href="/files/Fabian_Hee_CV.pdf" target="_blank" style="display: inline-block; background: #3b82f6; color: #fff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: opacity 0.2s;">
+    📄 Download PDF CV
+  </a>
+</div>
+

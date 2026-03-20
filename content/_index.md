@@ -3,9 +3,9 @@ title: "Fabian Hee"
 description: "Dev, Creative, & Tech Strategist"
 layout: "no-list"
 ---
-{{< img-profile src="images/profile_pic.png" alt="Fabian Hee" >}}
+{{< img-profile src="/img/profile_pic.png" alt="Fabian Hee" >}}
 
-I thrive at the intersection of **gaming, technology, and narrative.** With over 20 game titles under my belt and a career built on the forefront of technical innovation, I’ve transitioned from a traditional developer mindset to a seasoned practitioner of modern AI workflows.
+I thrive at the intersection of **gaming, technology, and narrative.** With {{< get_career_years >}} years of experience built on the forefront of technical innovation across industries, I’ve transitioned from a traditional developer mindset to a seasoned practitioner of modern AI workflows.
 
 **I don't just study the tech; I live in the implementation.**
 
@@ -17,12 +17,4 @@ Today, I leverage this hybrid expertise to help others navigate the rapidly evol
 
 ## **How I Can Help You**
 {{< services_grid >}}
-
----
-
-## **Selected Work**
-*Explore my portfolio to see these principles in action:*
-
----
-
-[**View Games**](/portfolio/games) | [**View Videos**](/portfolio/audio-video) | [**Technical Insights**](/portfolio/tech)
+{{< next_step "/experience" "Explore the Journey" >}}
