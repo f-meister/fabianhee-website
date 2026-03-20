@@ -1,6 +1,6 @@
 # fabianhee-website | Personal Hub & Blog
 
-This repository contains the source code for my personal brand hub, featuring my **Portfolio**, **Blog**, and **tastyfab** (YouTube content/JRPG & *Guilty Gear* analysis).
+This repository contains the source code for my personal brand hub, featuring my **Professional Profile**, **Blog**, **Portfolio**, **How I Work**, **Experience**, and YouTube channel.
 
 Built with **Hugo (Blowfish Theme)** and version-locked via **Dev Containers** for 100% reproducibility.
 
@@ -71,40 +71,59 @@ echo "CLOUDFLARE_ACCOUNT_ID=your_id" >> .secrets
 act -j build-deploy --secret-file .secrets
 
 ```
+---
+
+## 🪾 Branching Strategy
+Standard branching strategy applies.
+
+Production branch: `main`
+
+Preview branch: `dev`
+
+Feature branches should start with `(feature-number)-(feature-name)` and merge to dev for preview.
 
 ---
 
 ## 🚢 Deployment
 
-Deployment is automated via **GitHub Actions** and **Cloudflare Pages**.
+Deployment is automated via **GitHub Actions** and **Cloudflare**. 
 
 1. **Commit & Push:**
 ```bash
 git add .
-git commit -m "feat: analyze Sol Badguy theme"
-git push origin main
-
+git commit -m "feat: New blogpost 2026-01-01"
+git push origin dev
 ```
-
-
 2. **GitHub Action:** The `build-deploy` workflow triggers automatically.
 3. **Cloudflare:** The static files are pushed to Cloudflare Pages and served via my custom domain.
 
 ---
-
-## 📂 Content Management
-
-* **Portfolio:** Located in `content/portfolio/`. Uses the `profile` layout.
-* **tastyfab:** Located in `content/tastyfab/`. Uses the `background` (gaming) layout with YouTube embeds.
-* **Blog:** Located in `content/blog/`. Standard markdown posts.
-
-### Adding a new Character Analysis:
-
-```bash
-hugo new tastyfab/character-analyses/character-name.md
-
-```
+## 📂 Structure
+1. CSS, JS, and "images that are to be converted to webp format" are stored in the `assets` folder.
+2. Default Blowfish/Hugo configuration is in `config/_default`. These include menu configurations and site parameters.
+3. Actual website content is in `content`.
+4. Yaml files containing text strings to be procedurally generated is in `data`.
+5. Layout defaults, shortcodes, and partials are in `layouts` under each corresponding subfolder.
+6. Public-facing files are in `static`.
 
 ---
 
-**Would you like me to add a specific "Troubleshooting" section to this README covering common Cloudflare DNS or Hugo build errors?**
+## 📂 Content Management
+All content uses a custom `no-list` layout, except for Blogposts. Elements are often generated using shortcode `html` files contained in `layouts`
+
+* **Blog:** Located in `content/blog/`. Contains subfolders for each new blogpost, rendered with standard markdown.
+* **How I work:** Located in `content/mentality/`.
+* **Experience:** Located in `content/experience/`.
+* **Portfolio:** Located in `content/portfolio/` and consists of each corresponding portfolio type, (i.e. audio-video, games, & tech). There is no landing page for `Portfolio` itself.
+* **Contact:** Located in `content/contact/`.
+
+### Adding a new Blogpost:
+1. Create a new folder with the blogpost name.
+2. Create a new markdown file.
+3. Add a "feature" image (i.e. "feature.jpg" or "feature.png") for the cover/background.
+4. Push and deploy.
+
+Note that you can just copy the entire "Hello World" folder and use it as a template for new posts.
+
+## Contribution
+I'm open to collaborations and fixes. Please feel free to fork this repo if you find it useful for you.
