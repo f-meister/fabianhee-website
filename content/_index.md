@@ -23,4 +23,6 @@ Today, I leverage this hybrid expertise to help others navigate the rapidly evol
 ## **Selected Work**
 *Explore my portfolio to see these principles in action:*
 
+---
+
 [**View Games**](/portfolio/games) | [**View Videos**](/portfolio/audio-video) | [**Technical Insights**](/portfolio/tech)

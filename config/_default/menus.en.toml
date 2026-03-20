@@ -75,6 +75,11 @@
   weight = 10
 
 [[main]]
+  name = "Experience"
+  pageRef = "/experience"
+  weight = 15
+
+[[main]]
   identifier = "portfolio"
   name = "Portfolio"
   url = "#"

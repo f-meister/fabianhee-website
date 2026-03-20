@@ -1,0 +1,41 @@
+{{ $data := .Site.Data.experience }}
+
+<div style="max-width: 800px; margin: 40px auto; padding: 0 20px; font-family: sans-serif; text-align: left;">
+  <div style="margin-left: 10px;">
+    
+    {{ range $index, $element := $data.entries }}
+    <div style="position: relative; padding-left: 30px; padding-bottom: 40px; text-align: left;">
+      
+      {{/* THE LINE */}}
+      {{ if (lt $index (sub (len $data.entries) 1)) }}
+      <div style="position: absolute; left: 0; top: 15px; bottom: -5px; width: 2px; background: #e5e5e5; opacity: 0.3;"></div>
+      {{ end }}
+
+      {{/* THE DOT */}}
+      <div style="position: absolute; left: -7px; top: 5px; width: 16px; height: 16px; border-radius: 50%; background: #3b82f6; border: 3px solid var(--bg-color, #fff); z-index: 10;"></div>
+      
+      {{/* CONTENT HEADER */}}
+      <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 8px; color: currentColor;">
+        <h3 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: inherit; line-height: 1.2;">
+            {{ .role }}
+        </h3>
+        <span style="font-size: 0.85rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">
+            {{ .period }}
+        </span>
+      </div>
+      
+      {{/* Company & Highlight */}}
+      <div style="margin-bottom: 10px; font-size: 1rem; color: currentColor; opacity: 0.8; text-align: left;">
+        <strong>{{ .company }}</strong> — <span style="font-style: italic; color: #3b82f6;">{{ .highlight }}</span>
+      </div>
+      
+      {{/* Description (safeHTML allows your hyperlinks to work!) */}}
+      <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: currentColor; opacity: 0.7; text-align: left;">
+        {{ .description | safeHTML }}
+      </p>
+      
+    </div>
+    {{ end }}
+    
+  </div>
+</div>
