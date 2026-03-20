@@ -1,0 +1,35 @@
+header: "The Way I Work"
+subtitle: "My core philosophy on engineering, systems, and the intersection of technology and narrative."
+sections:
+  - title: "Pragmatic Innovation: ROI Over Hype"
+    items:
+      - topic: "Evidence-Based Adoption"
+        description: "New tech (especially AI) is a tool, not a cure-all. If the cost of implementation and oversight exceeds the manual effort, we don't build it. I prioritize high-impact, low-risk utility."
+      - topic: "The Sunk Cost Guardrail"
+        description: "I help organizations avoid 'Budget Killing' projects by identifying when a solution is draining resources without a clear path to ROI, allowing for pivots before the damage is done."
+  
+  - title: "Systems & Strategy: Scalable Foundations"
+    items:
+      - topic: "Strategic Front-Loading"
+        description: "Initial time cost is an investment. Whether launching a marketing campaign or a data pipeline, a solid architectural foundation prevents massive waste in emergency refactoring later."
+      - topic: "Pragmatic Automation"
+        description: "I automate the repetitive and high-volume tasks (like LQA reporting or data cleaning) to protect human bandwidth for high-stakes, strategic decision-making."
+      - topic: "Resource Optimization"
+        description: "Speed is a byproduct of a good system. I focus on reducing the 'Total Cost of Ownership' by ensuring processes are lean and documented from day one."
+
+  - title: "Narrative & Experience: Structural Integrity"
+    items:
+      - topic: "Structure as the North Star"
+        description: "Whether it’s a lore analysis video or a technical UI, I get the structure right first. Once the bones are solid, the content flows naturally."
+      - topic: "Quality as a System"
+        description: "I prioritize the **end-user experience** over technical vanity. A project is only successful if it provides immediate, intuitive value to the person interacting with it."
+
+  - title: "Engineering: Reproducibility First"
+    items:
+      - topic: "Environment Parity"
+        description: "I leverage **Dev Containers** to ensure that 'it works on my machine' is a thing of the past. If the environment isn't reproducible in one click, the system is broken."
+      - topic: "Automation-Backed Workflows"
+        description: "I integrate **GitHub Actions** and CI/CD early. Catching errors at the commit stage prevents expensive legacy debt later."
+      - topic: "Language Agnosticism"
+        description: "I select the stack—Python, R, Hugo, etc.—based on the specific constraints and goals of the project, not personal bias."
+

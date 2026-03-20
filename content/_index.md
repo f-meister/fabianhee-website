@@ -17,4 +17,4 @@ Today, I leverage this hybrid expertise to help others navigate the rapidly evol
 
 ## **How I Can Help You**
 {{< services_grid >}}
-{{< next_step "/experience" "Explore the Journey" >}}
+{{< next_step "/mentality" "Learn How I work" >}}

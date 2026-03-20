@@ -1,0 +1,28 @@
+{{ $data := .Site.Data.mentality }}
+
+<div class="prose dark:prose-invert max-w-none">
+  {{/* The Sections */}}
+  {{ range $data.sections }}
+  <section class="mb-12">
+    {{/* Section titles are now a cleaner weight */}}
+    <h2 class="text-center text-primary-600 dark:text-primary-400 mb-8 font-semibold">
+        {{ .title }}
+    </h2>
+    
+    <div class="max-w-2xl mx-auto">
+      {{ range .items }}
+      <div class="mb-8 text-left">
+        {{/* Topic: Switched from bold to semibold and reduced size slightly */}}
+        <h2 class="m-0 text-base font-semibold leading-tight opacity-90">{{ .topic }}</h2>
+        
+        {{/* Description: Switched to normal weight with slightly higher opacity */}}
+        <p class="mt-2 text-md md:text-base font-normal opacity-70 leading-relaxed">
+            {{ .description | markdownify }}
+        </p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+</div>

@@ -75,9 +75,14 @@
   weight = 10
 
 [[main]]
+  name = "How I Work"
+  pageRef = "/mentality"
+  weight = 12
+
+[[main]]
   name = "Experience"
   pageRef = "/experience"
-  weight = 15
+  weight = 14
 
 [[main]]
   identifier = "portfolio"
