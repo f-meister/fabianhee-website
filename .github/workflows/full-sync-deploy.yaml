@@ -1,8 +1,8 @@
-name: Sync Blog from Google Drive
+name: Full Sync & Deploy
 
 on:
   push:
-    branches: [main, dev] # Build when you update the design/code
+    branches: ["main", "dev"]
   schedule:
     - cron: '0 */12 * * *' # Auto-sync Drive content every 12h
   workflow_dispatch:      # Manual trigger
