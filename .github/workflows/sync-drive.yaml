@@ -6,17 +6,23 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   id-token: write
 
 jobs:
-  sync:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_PAT_FOR_BYPASS }}
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3.0.0
+        with:
+          hugo-version: '0.157.0'
+          extended: true
 
       - name: Cache Rclone
         id: cache-rclone
@@ -65,23 +71,12 @@ jobs:
         run: |
           rclone sync gdrive: ./content/blog --verbose --drive-use-trash=false
 
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          CURRENT_BRANCH=${GITHUB_REF##*/}
-          
-          git add content/blog/
-          
-          if [ -n "$(git status --porcelain content/blog/)" ]; then
-            git commit -m "Automated Sync: Updating $CURRENT_BRANCH with Drive content"
-            git push origin HEAD:$CURRENT_BRANCH
-          else
-            echo "No changes detected on $CURRENT_BRANCH."
-          fi
+      - name: Build Site
+        run: hugo --minify
 
-      - name: Trigger Cloudflare Build
-        # This only runs if the previous steps succeeded
-        if: success()
-        run: |
-          curl -X POST ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=YOUR_PROJECT_NAME
