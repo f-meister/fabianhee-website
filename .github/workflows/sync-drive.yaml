@@ -79,3 +79,9 @@ jobs:
           else
             echo "No changes detected on $CURRENT_BRANCH."
           fi
+
+      - name: Trigger Cloudflare Build
+        # This only runs if the previous steps succeeded
+        if: success()
+        run: |
+          curl -X POST ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
