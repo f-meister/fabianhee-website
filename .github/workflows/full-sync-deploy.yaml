@@ -1,0 +1,97 @@
+name: Full Sync & Deploy
+
+on:
+  push:
+    branches: ["main", "dev"]
+  schedule:
+    - cron: '0 */12 * * *' # Auto-sync Drive content every 12h
+  workflow_dispatch:      # Manual trigger
+
+permissions:
+  contents: read
+  id-token: write # Required for Google WIF
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          submodules: recursive  # Ensures themes/submodules are pulled
+          fetch-depth: 0    # Required for some Hugo features
+
+      - name: Setup Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/hugo_cache
+            public
+          # The key changes when your config or lock files change
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum', '**/package-lock.json', '**/config.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      - name: Setup Go
+        uses: actions/setup-go@v5.3.0
+        with:
+          go-version: '1.25.8'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3.0.0
+        with:
+          hugo-version: '0.157.0'
+          extended: true
+
+      - name: Cache Rclone
+        id: cache-rclone
+        uses: actions/cache@v4
+        with:
+          path: ~/rclone_bin
+          key: ${{ runner.os }}-rclone-v2
+
+      - name: Install Rclone
+        if: steps.cache-rclone.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/rclone_bin
+          sudo apt-get update
+          sudo apt-get install -y rclone
+          cp /usr/bin/rclone ~/rclone_bin/rclone
+
+      - name: Setup Rclone Path
+        run: |
+          chmod +x ~/rclone_bin/rclone
+          echo "$HOME/rclone_bin" >> $GITHUB_PATH
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: 'projects/${{ secrets.GCLOUD_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+          service_account: '${{ secrets.GCLOUD_SERVICE_ACCOUNT }}'
+          token_format: 'access_token'
+          access_token_scopes: 'https://www.googleapis.com/auth/drive.readonly'
+
+      - name: Configure & Sync Drive
+        run: |
+          mkdir -p ~/.config/rclone
+          cat <<EOF > ~/.config/rclone/rclone.conf
+          [gdrive]
+          type = drive
+          scope = drive.readonly
+          token = {"access_token":"${{ steps.auth.outputs.access_token }}","token_type":"Bearer","expiry":"$(date -d '1 hour' --iso-8601=seconds)"}
+          root_folder_id = ${{ secrets.GDRIVE_FOLDER_ID }}
+          EOF
+          # Pull content into the runner's memory (never committed)
+          rclone sync gdrive: ./content/blog --verbose --drive-use-trash=false
+
+      - name: Build Site
+        run: hugo --gc --minify --cacheDir /tmp/hugo_cache
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3.14.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.76.0"
+          command: pages deploy public --project-name=fabianhee-website --branch=${{ github.ref_name }}

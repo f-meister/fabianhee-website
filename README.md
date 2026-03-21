@@ -91,10 +91,10 @@ Deployment is automated via **GitHub Actions** and **Cloudflare**.
 1. **Commit & Push:**
 ```bash
 git add .
-git commit -m "feat: New blogpost 2026-01-01"
+git commit -m "feat: add some fancy feature"
 git push origin dev
 ```
-2. **GitHub Action:** The `build-deploy` workflow triggers automatically.
+2. **GitHub Action:** The `build-deploy` workflow triggers automatically on push for `main` and `dev` branches.
 3. **Cloudflare:** The static files are pushed to Cloudflare Pages and served via my custom domain.
 
 ---
@@ -111,19 +111,16 @@ git push origin dev
 ## 📂 Content Management
 All content uses a custom `no-list` layout, except for Blogposts. Elements are often generated using shortcode `html` files contained in `layouts`
 
-* **Blog:** Located in `content/blog/`. Contains subfolders for each new blogpost, rendered with standard markdown.
+* **Blog:** Located in `content/blog/`. Content is grabbed from Google Drive during build time, therefore nothing should be added here manually.
 * **How I work:** Located in `content/mentality/`.
 * **Experience:** Located in `content/experience/`.
 * **Portfolio:** Located in `content/portfolio/` and consists of each corresponding portfolio type, (i.e. audio-video, games, & tech). There is no landing page for `Portfolio` itself.
 * **Contact:** Located in `content/contact/`.
 
 ### Adding a new Blogpost:
-1. Create a new folder with the blogpost name.
-2. Create a new markdown file.
-3. Add a "feature" image (i.e. "feature.jpg" or "feature.png") for the cover/background.
-4. Push and deploy.
+Blogposts live in Google Drive and the full integration is built using Google Console's Workload Identity Federation. (please see `.github/workflows/full-sync-deploy.yaml` for more details)
 
-Note that you can just copy the entire "Hello World" folder and use it as a template for new posts.
+The "Hello World" folder is the main reference for creating blogposts. Use it as a template for new posts.
 
 ## Contribution
 I'm open to collaborations and fixes. Please feel free to fork this repo if you find it useful for you.
