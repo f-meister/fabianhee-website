@@ -22,16 +22,24 @@ jobs:
         id: cache-rclone
         uses: actions/cache@v4
         with:
-          path: /usr/bin/rclone
-          # This key ensures that if the OS changes, the cache resets
-          key: ${{ runner.os }}-rclone
+          # Cache a local folder in your home directory instead of /usr/bin
+          path: ~/rclone_bin
+          key: ${{ runner.os }}-rclone-v1
 
       - name: Install Rclone
-        # Only runs if the cache was NOT found (cache-hit != 'true')
         if: steps.cache-rclone.outputs.cache-hit != 'true'
         run: |
+          mkdir -p ~/rclone_bin
           sudo apt-get update
           sudo apt-get install -y rclone
+          # Copy the binary from the system path to our cached home path
+          cp /usr/bin/rclone ~/rclone_bin/rclone
+
+      - name: Setup Rclone Path
+        run: |
+          # Make the cached binary executable and add it to the Runner's PATH
+          chmod +x ~/rclone_bin/rclone
+          echo "$HOME/rclone_bin" >> $GITHUB_PATH
 
       - name: Authenticate to Google Cloud
         id: auth
