@@ -1,36 +1,38 @@
 name: Sync Blog from Google Drive
 
 on:
+  push:
+    branches: [main, dev] # Build when you update the design/code
   schedule:
-    - cron: '0 */12 * * *'
-  workflow_dispatch:
+    - cron: '0 */12 * * *' # Auto-sync Drive content every 12h
+  workflow_dispatch:      # Manual trigger
 
 permissions:
   contents: read
-  id-token: write
+  id-token: write # Required for Google WIF
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT_FOR_BYPASS }}
+          submodules: true  # Ensures themes/submodules are pulled
+          fetch-depth: 0    # Required for some Hugo features
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3.0.0
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.157.0'
+          hugo-version: 'latest'
           extended: true
 
       - name: Cache Rclone
         id: cache-rclone
         uses: actions/cache@v4
         with:
-          # Cache a local folder in your home directory instead of /usr/bin
           path: ~/rclone_bin
-          key: ${{ runner.os }}-rclone-v1
+          key: ${{ runner.os }}-rclone-v2
 
       - name: Install Rclone
         if: steps.cache-rclone.outputs.cache-hit != 'true'
@@ -38,12 +40,10 @@ jobs:
           mkdir -p ~/rclone_bin
           sudo apt-get update
           sudo apt-get install -y rclone
-          # Copy the binary from the system path to our cached home path
           cp /usr/bin/rclone ~/rclone_bin/rclone
 
       - name: Setup Rclone Path
         run: |
-          # Make the cached binary executable and add it to the Runner's PATH
           chmod +x ~/rclone_bin/rclone
           echo "$HOME/rclone_bin" >> $GITHUB_PATH
 
@@ -56,7 +56,7 @@ jobs:
           token_format: 'access_token'
           access_token_scopes: 'https://www.googleapis.com/auth/drive.readonly'
 
-      - name: Configure Rclone
+      - name: Configure & Sync Drive
         run: |
           mkdir -p ~/.config/rclone
           cat <<EOF > ~/.config/rclone/rclone.conf
@@ -66,9 +66,7 @@ jobs:
           token = {"access_token":"${{ steps.auth.outputs.access_token }}","token_type":"Bearer","expiry":"$(date -d '1 hour' --iso-8601=seconds)"}
           root_folder_id = ${{ secrets.GDRIVE_FOLDER_ID }}
           EOF
-
-      - name: Sync Drive to Blog Directory
-        run: |
+          # Pull content into the runner's memory (never committed)
           rclone sync gdrive: ./content/blog --verbose --drive-use-trash=false
 
       - name: Build Site
@@ -79,4 +77,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=fabianhee-website
+          # 'public' is the default Hugo output folder
+          command: pages deploy public --project-name=fabianhee-website --branch=${{ github.ref_name }}
