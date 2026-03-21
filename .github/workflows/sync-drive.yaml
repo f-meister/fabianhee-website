@@ -54,7 +54,8 @@ jobs:
           EOF
 
       - name: Sync Drive to Blog Directory
-        run: rclone sync gdrive: ./content/blog --verbose --drive-use-trash=false
+        run: |
+          rclone sync gdrive: ./content/blog --verbose --drive-use-trash=false
 
       - name: Commit and Push Changes
         run: |
