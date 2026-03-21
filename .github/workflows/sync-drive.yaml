@@ -50,15 +50,12 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Extracts the branch name (e.g., main, dev, feature/gdrive-sync)
           CURRENT_BRANCH=${GITHUB_REF##*/}
           
           git add content/blog/
           
-          if [ -n "$(git status --porcelain)" ]; then
+          if [ -n "$(git status --porcelain content/blog/)" ]; then
             git commit -m "Automated Sync: Updating $CURRENT_BRANCH with Drive content"
-            # This pushes back to whichever branch triggered the action
             git push origin HEAD:$CURRENT_BRANCH
           else
             echo "No changes detected on $CURRENT_BRANCH."
