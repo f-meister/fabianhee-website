@@ -3,4 +3,3 @@
 .hugo_build.lock
 public/*
 resources/*
-content/blog/*
