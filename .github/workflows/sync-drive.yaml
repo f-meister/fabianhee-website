@@ -2,8 +2,8 @@ name: Sync Blog from Google Drive
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # Auto-syncs every 12h (Only runs on main)
-  workflow_dispatch:      # Manual "Sync Now" button (Works on dev & feature branches)
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -18,6 +18,29 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT_FOR_BYPASS }}
 
+      - name: Cache Rclone
+        id: cache-rclone
+        uses: actions/cache@v4
+        with:
+          # Cache a local folder in your home directory instead of /usr/bin
+          path: ~/rclone_bin
+          key: ${{ runner.os }}-rclone-v1
+
+      - name: Install Rclone
+        if: steps.cache-rclone.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/rclone_bin
+          sudo apt-get update
+          sudo apt-get install -y rclone
+          # Copy the binary from the system path to our cached home path
+          cp /usr/bin/rclone ~/rclone_bin/rclone
+
+      - name: Setup Rclone Path
+        run: |
+          # Make the cached binary executable and add it to the Runner's PATH
+          chmod +x ~/rclone_bin/rclone
+          echo "$HOME/rclone_bin" >> $GITHUB_PATH
+
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v2
@@ -25,11 +48,7 @@ jobs:
           workload_identity_provider: 'projects/${{ secrets.GCLOUD_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
           service_account: '${{ secrets.GCLOUD_SERVICE_ACCOUNT }}'
           token_format: 'access_token'
-          create_credentials_file: true
           access_token_scopes: 'https://www.googleapis.com/auth/drive.readonly'
-
-      - name: Install Rclone
-        run: sudo apt-get install -y rclone
 
       - name: Configure Rclone
         run: |
