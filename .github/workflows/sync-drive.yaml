@@ -13,18 +13,34 @@ permissions:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
         with:
-          submodules: true  # Ensures themes/submodules are pulled
+          submodules: recursive  # Ensures themes/submodules are pulled
           fetch-depth: 0    # Required for some Hugo features
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+      - name: Setup Cache
+        uses: actions/cache@v4
         with:
-          hugo-version: 'latest'
+          path: |
+            /tmp/hugo_cache
+            public
+          # The key changes when your config or lock files change
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum', '**/package-lock.json', '**/config.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      - name: Setup Go
+        uses: actions/setup-go@v5.3.0
+        with:
+          go-version: '1.25.8'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3.0.0
+        with:
+          hugo-version: '0.157.0'
           extended: true
 
       - name: Cache Rclone
@@ -70,12 +86,11 @@ jobs:
           rclone sync gdrive: ./content/blog --verbose --drive-use-trash=false
 
       - name: Build Site
-        run: hugo --minify
+        run: hugo --gc --minify --cacheDir /tmp/hugo_cache
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v3.14.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # 'public' is the default Hugo output folder
           command: pages deploy public --project-name=fabianhee-website --branch=${{ github.ref_name }}
