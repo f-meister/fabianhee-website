@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main", "dev"]
   schedule:
-    - cron: '0 */12 * * *' # Auto-sync Drive content every 12h
+    - cron: '0 0 * * *' # Auto-sync Drive content every 24h
   workflow_dispatch:      # Manual trigger
 
 permissions:
