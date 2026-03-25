@@ -109,14 +109,36 @@
   weight = 3
 
 [[main]]
-  name = "tastyfab"
-  pre = "youtube"
-  url = "https://www.youtube.com/@tastyfab"
-  weight = 30
-
-[[main]]
   identifier = "contact"
   pre = "envelope"
   name = "Contact"
   url = "/contact"
+  weight = 30
+
+[[main]]
+  identifier = "subscribe"
+  pre = "bell"
+  name = "Subscribe"
+  url = "#"
   weight = 40
+
+[[main]]
+  parent = "subscribe"
+  name = "YouTube"
+  pre = "youtube"
+  url = "https://www.youtube.com/@tastyfab"
+  weight = 1
+
+[[main]]
+  parent = "subscribe"
+  name = "Newsletter"
+  pre = "substack"
+  url = "/newsletter"
+  weight = 2
+
+[[main]]
+  parent = "subscribe"
+  name = "RSS"
+  url = "/index.xml"
+  weight = 3
+  pre = "rss"
