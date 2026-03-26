@@ -3,15 +3,13 @@ languageCode = "en-us"
 title = "Fabian Hee"
 theme = "blowfish"
 
+# Google Analytics tracking ID. Set to empty string to disable.
+googleAnalytics = "G-PEJEP8VZ2M"
+
 [taxonomies]
   category = "categories"
   tag = "tags"
   platform = "platforms" # Custom taxonomy for your games
-
-[services]
-  [services.googleAnalytics]
-    ID = "HUGO_SERVICES_GOOGLEANALYTICS_ID"
-    enabled = true  # Some versions require this explicit 'true'
 
 [privacy]
   [privacy.youtube]
