@@ -168,9 +168,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   # globalWidgetPosition = "right"
 
 [analytics]
-  [analytics.google]
-    id = "HUGO_SERVICES_GOOGLEANALYTICS_ID"
-    enabled = true  # Some versions require this explicit 'true'
+  google = "G-PEJEP8VZ2M"
 
 [verification]
   # google = ""
