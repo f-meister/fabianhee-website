@@ -167,9 +167,6 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   # globalWidgetColor = "#FFDD00"
   # globalWidgetPosition = "right"
 
-[analytics]
-  google = "G-PEJEP8VZ2M"
-
 [verification]
   # google = ""
   # bing = ""
